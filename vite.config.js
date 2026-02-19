@@ -9,8 +9,6 @@ export default defineConfig({
       registerType: "autoUpdate",
       manifest: {
         name: "Qiita Reader",
-        devOptions: { enabled: true },
-        includeAssets: ["icon-192.png", "icon-512.png"],
         short_name: "QiitaReader",
         description: "Qiita記事閲覧アプリ",
         theme_color: "#55c500",
@@ -27,6 +25,15 @@ export default defineConfig({
             src: "/icon-512.png",
             sizes: "512x512",
             type: "image/png"
+          }
+        ],
+        screenshots: [
+          {
+            src: "/icon-512.png",
+            sizes: "512x512",
+            form_factor: "wide",
+            type: "image/png",
+            label: "kaeru"
           }
         ]
       }
