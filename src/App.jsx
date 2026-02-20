@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import PullToRefresh from "react-pull-to-refresh";
 import "./App.css";
 
 function App() {
@@ -39,28 +38,26 @@ function App() {
   if (loading) return <h2 style={{ textAlign: "center" }}>読み込み中...</h2>;
 
   return (
-    <PullToRefresh onRefresh={fetchArticles}>
-      <div name="container">
-        <div style={{ padding: "20px" }}>
-          <h1>Qiita Reader</h1>
+    <div name="container">
+      <div style={{ padding: "20px" }}>
+        <h1>Qiita Reader</h1>
 
-          {articles.map((article) => (
-            <div key={article.id} className="card">
-              <a href={article.url} target="_blank">
-                <h3>{article.title}</h3>
-              </a>
+        {articles.map((article) => (
+          <div key={article.id} className="card">
+            <a href={article.url} target="_blank">
+              <h3>{article.title}</h3>
+            </a>
 
-              <p>投稿者: {article.user.id}</p>
-              <p>いいね: {article.likes_count}</p>
-            </div>
-          ))}
-        </div>
-        <div style={{ position: "fixed", bottom: "0", width: "96%", display: "flex", justifyContent: "space-between", padding: "10px", backgroundColor: "#f0f0f0" }}>
-          <button onClick={() => { /* 検索処理をここに追加する */ }}>検索</button>
-          <button onClick={() => { /* ブックマーク処理をここに追加する */ }}>後で</button>
-        </div>
+            <p>投稿者: {article.user.id}</p>
+            <p>いいね: {article.likes_count}</p>
+          </div>
+        ))}
       </div>
-    </PullToRefresh>
+      <div style={{ position: "fixed", bottom: "0", width: "96%", display: "flex", justifyContent: "space-between", padding: "10px", backgroundColor: "#f0f0f0" }}>
+        <button onClick={() => { /* 検索処理をここに追加する */ }}>検索</button>
+        <button onClick={() => { /* ブックマーク処理をここに追加する */ }}>後で</button>
+      </div>
+    </div>
     
   );
 }
